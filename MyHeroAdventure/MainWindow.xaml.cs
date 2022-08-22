@@ -14,7 +14,7 @@ namespace MyHeroAdventure
             InitializeComponent();          
         }
         public class Room
-        {
+        {            
             public int BossPower { get; set; }
             public string RoomContents { get; set; }
             public bool IsChecked { get; set; }
@@ -22,22 +22,22 @@ namespace MyHeroAdventure
 
         public int heroPower = 25;
         public int roomCleared = 0;
-        public int artifactsCount = 1;
+        public int artifactsCount = 3;        
         public Room[] dungeon = new Room[10];
         
         Random rnd = new Random(); 
         public List<int> artifactIndex = new List<int>();
         public void DungeonGenerator()
         {
-            //dungeon = new Room[10];
+            heroPower = 25;
+            roomCleared = 0;
             //Генерируем количество артефактов
             int artifactsCount = rnd.Next(1, 5);
             //Генерируем индексы артефактов в массиве дверей
             for (int i = 0; i < artifactsCount+1; i++)
             {
                 artifactIndex.Add(rnd.Next(1, 10));
-            }
-            
+            }           
 
 
             //Генерируем подземелье из боссов и артефактов
@@ -60,10 +60,14 @@ namespace MyHeroAdventure
                     } else
                     {
                         dungeon[i].BossPower = rnd.Next(5, 100);
-                    }                    
+                    }
+                    dungeon[i].IsChecked = false;
                     
                 }
             }
+
+            lbPower.Content = heroPower.ToString();
+            lbIndicator.Content = "ВЫБЕРИ СВОЙ ПУТЬ!";
 
         }
         public void RoomCheck(int roomNumber)
@@ -76,22 +80,23 @@ namespace MyHeroAdventure
                     {
                         lbIndicator.Content = "ПОБЕДА!!!";
                         roomCleared = ++roomCleared;
-                        
+                        heroPower = heroPower + 5;
+                        lbPower.Content = heroPower.ToString();
+                       
                     }
                     else
                     {
                         lbIndicator.Content = "ПОРАЖЕНИЕ!";
                         MessageBox.Show("Поражение");
-                        DungeonGenerator();
-
-                        
+                        DungeonGenerator();                        
                     }
                 }
                 else
                 {
+                   lbIndicator.Content = "Вы нашли артефакт силой " + dungeon[roomNumber - 1].BossPower.ToString();
                    heroPower = heroPower + dungeon[roomNumber - 1].BossPower;
                    lbPower.Content = heroPower.ToString(); 
-                   roomCleared = ++roomCleared;
+                   roomCleared = ++roomCleared;                   
                 }
 
                 dungeon[roomNumber - 1].IsChecked = true;
@@ -102,6 +107,11 @@ namespace MyHeroAdventure
                 lbIndicator.Content = "КОМНАТА ПУСТА!";
             }
             lbRoomClearCount.Content = roomCleared;
+            if (roomCleared == 10)
+            {
+                MessageBox.Show("ВЫ ПОБЕДИЛИ!!!!");
+                DungeonGenerator();
+            }
 
         }
 

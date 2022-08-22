@@ -22,10 +22,11 @@
         <Button x:Name="btnTest" Content="Тест" HorizontalAlignment="Left" Margin="580,128,0,0" VerticalAlignment="Top" Click="btnTest_Click"/>
         <Button x:Name="btnGenerate" Content="Создать" HorizontalAlignment="Left" Margin="580,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.093,0.365" Click="btnGenerate_Click"/>
         <TextBlock x:Name="tbTest" HorizontalAlignment="Left" Margin="580,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="177" Width="167"/>
-        <Label x:Name="lbIndicator" Content="Выбери свой путь" HorizontalAlignment="Left" Margin="580,54,0,0" VerticalAlignment="Top" Width="167"/>
+        <Label x:Name="lbIndicator" Content="" HorizontalAlignment="Left" Margin="580,54,0,0" VerticalAlignment="Top" Width="167"/>
         <Label x:Name="lbRoomCleared" Content="Комнат очищено" HorizontalAlignment="Left" Margin="580,80,0,0" VerticalAlignment="Top" Width="106"/>
         <Label x:Name="lbRoomClearCount" Content="0" HorizontalAlignment="Left" Margin="709,80,0,0" VerticalAlignment="Top" Width="54"/>
         <Label x:Name="lbPower" Content="25" HorizontalAlignment="Left" Margin="415,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.187,-0.076" Width="93"/>
+        <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="122,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386" Height="109"/>
 
     </Grid>
 </Window>
