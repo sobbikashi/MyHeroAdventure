@@ -19,7 +19,10 @@
         <Button x:Name="btn9" Content="9" HorizontalAlignment="Center" Margin="0,157,0,0" VerticalAlignment="Top" Width="44" Height="60                 "/>
         <Button x:Name="btn10" HorizontalAlignment="Left" Margin="463,157,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Content="10"/>
         <Label x:Name="lbYourPowerLabel" Content="Ваша Сила" HorizontalAlignment="Left" Margin="122,348,0,0" VerticalAlignment="Top" Width="129"/>
-        <TextBox HorizontalAlignment="Left" Margin="388,352,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbPower" HorizontalAlignment="Left" Margin="388,352,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnTest" Content="Тест" HorizontalAlignment="Left" Margin="580,128,0,0" VerticalAlignment="Top" Click="btnTest_Click"/>
+        <Button x:Name="btnGenerate" Content="Создать" HorizontalAlignment="Left" Margin="580,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.093,0.365" Click="btnGenerate_Click"/>
+        <TextBlock x:Name="tbTest" HorizontalAlignment="Left" Margin="580,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="136" Width="167"/>
 
     </Grid>
 </Window>
