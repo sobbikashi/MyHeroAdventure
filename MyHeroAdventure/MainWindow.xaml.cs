@@ -23,7 +23,7 @@ namespace MyHeroAdventure
         }
 
         public int heroPower = 25;
-        public int roomCleared = 0;
+        public int roomCleared = 10;
         public int artifactsCount = 3;        
         public Room[] dungeon = new Room[10];
         
@@ -33,16 +33,37 @@ namespace MyHeroAdventure
         public string BossNameGenerator(int power)
         {
             string bossName = "Скелет";
-            if ((power > 0) && (power <= 10)) bossName = "Здоровенная Бешеная Цыпа";
-            if ((power > 10) && (power <= 20)) bossName = "3872 орка";
-            if ((power > 20) && (power <= 30)) bossName = "Блуждающий Нос";
-            if ((power > 30) && (power <= 40)) bossName = "Страховой Агент";
-            if ((power > 40) && (power <= 50)) bossName = "Пикачу с Топором";
-            if ((power > 50) && (power <= 60)) bossName = "Милый Кролик";
-            if ((power > 60) && (power <= 70)) bossName = "Шовинистский Боров";
-            if ((power > 70) && (power <= 80)) bossName = "Лососилиск";
-            if ((power > 80) && (power <= 90)) bossName = "Челведведосвин";
-            if ((power > 90) && (power <= 100)) bossName = "Газебо";
+            if ((power > 0) && (power <= 10))
+            {
+                bossName = "Здоровенная Бешеная Цыпа";
+            } else if ((power > 10) && (power <= 20))
+            {
+                bossName = "3872 орка";
+            } else if ((power > 20) && (power <= 30))
+            {
+                bossName = "Блуждающий Нос";
+            } else if ((power > 30) && (power <= 40))
+            {
+                bossName = "Страховой Агент";
+            } else if ((power > 40) && (power <= 50))
+            {
+                bossName = "Пикачу с Топором";
+            } else if ((power > 50) && (power <= 60))
+            {
+                bossName = "Милый Кролик";
+            } else if ((power > 60) && (power <= 70))
+            {
+                bossName = "Шовинистский Боров";
+            } else if ((power > 70) && (power <= 80))
+            {
+                bossName = "Лососилиск";
+            } else if ((power > 80) && (power <= 90))
+            {
+                bossName = "Челведведосвин";
+            } else if ((power > 90) && (power <= 100))
+            {
+                bossName = "Газебо";
+            }                
             return bossName;
         }
         public string ArtifactNameGenerator(int power)
@@ -63,7 +84,7 @@ namespace MyHeroAdventure
         public void DungeonGenerator()
         {
             heroPower = 25;
-            roomCleared = 0;
+            roomCleared = 10;
             //Генерируем количество артефактов
             int artifactsCount = rnd.Next(1, 5);
             //Генерируем индексы артефактов в массиве дверей
@@ -82,23 +103,16 @@ namespace MyHeroAdventure
                     if (i == artifactIndex[j])
                     {
                         dungeon[i].RoomContents = "Artifact";
+                        dungeon[i].BossPower = rnd.Next(10, 81);
+                        dungeon[i].Name = ArtifactNameGenerator(dungeon[i].BossPower);
                     }
                     else
                     {
                         dungeon[i].RoomContents = "Boss";
-                        dungeon[i].Name = BossNameGenerator(dungeon[i].BossPower);
-                    }
-                    if (dungeon[i].RoomContents == "Artifact")
-                    {
-                        dungeon[i].BossPower = rnd.Next(10,81);
-                        dungeon[i].Name = ArtifactNameGenerator(dungeon[i].BossPower);
-
-                    } else
-                    {
                         dungeon[i].BossPower = rnd.Next(5, 100);
-                    }
-                    dungeon[i].IsChecked = false;
-                    
+                        dungeon[i].Name = BossNameGenerator(dungeon[i].BossPower);
+                    }                   
+                    dungeon[i].IsChecked = false;                   
                     
                 }
             }
@@ -116,7 +130,7 @@ namespace MyHeroAdventure
                     if (heroPower >= dungeon[roomNumber - 1].BossPower)
                     {
                         lbIndicator.Content = "ПОБЕДА!!!";
-                        roomCleared = ++roomCleared;
+                        roomCleared = --roomCleared;
                         heroPower = heroPower + 5;
                         lbPower.Content = heroPower.ToString();
                         tbStatus.Text = "На Вас напал монстр " + dungeon[roomNumber - 1].Name + " силой " + dungeon[roomNumber-1].BossPower + "\n" + "За победу Вы получаете 5 силы";
@@ -134,7 +148,7 @@ namespace MyHeroAdventure
                    tbStatus.Text = "Вы нашли артефакт " + dungeon[roomNumber-1].Name.ToString() + " силой " + dungeon[roomNumber - 1].BossPower.ToString();
                    heroPower = heroPower + dungeon[roomNumber - 1].BossPower;
                    lbPower.Content = heroPower.ToString(); 
-                   roomCleared = ++roomCleared;                   
+                   roomCleared = --roomCleared;                   
                 }
 
                 dungeon[roomNumber - 1].IsChecked = true;
@@ -145,7 +159,7 @@ namespace MyHeroAdventure
                 lbIndicator.Content = "КОМНАТА ПУСТА!";
             }
             lbRoomClearCount.Content = roomCleared;
-            if (roomCleared == 10)
+            if (roomCleared == 0)
             {
                 MessageBox.Show("ВЫ ПОБЕДИЛИ!!!!");
                 DungeonGenerator();
@@ -166,7 +180,7 @@ namespace MyHeroAdventure
             tbTest.Text = "";
             for (int i = 0; i < 10; i++)
             {
-                tbTest.Text = tbTest.Text + dungeon[i].BossPower + " " + dungeon[i].RoomContents + " " + dungeon[i].IsChecked.ToString() + "\n";
+                tbTest.Text = tbTest.Text + dungeon[i].BossPower + " " + dungeon[i].RoomContents + " " + dungeon[i].IsChecked.ToString() + dungeon[i].Name + "\n";
             }
         }
         #endregion
