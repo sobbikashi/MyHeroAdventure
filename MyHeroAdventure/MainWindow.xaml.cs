@@ -91,7 +91,7 @@ namespace MyHeroAdventure
             for (int i = 0; i < artifactsCount+1; i++)
             {
                 artifactIndex.Add(rnd.Next(1, 10));
-            }           
+            }         
 
 
             //Генерируем подземелье из боссов и артефактов
@@ -156,7 +156,7 @@ namespace MyHeroAdventure
             }
             else
             {
-                lbIndicator.Content = "КОМНАТА ПУСТА!";
+                tbStatus.Text = "КОМНАТА ПУСТА!";
             }
             lbRoomClearCount.Content = roomCleared;
             if (roomCleared == 0)
