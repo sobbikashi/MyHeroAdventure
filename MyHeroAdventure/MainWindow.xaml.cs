@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Drawing;
+using System.Windows.Controls;
 
 namespace MyHeroAdventure
 {
@@ -26,46 +28,64 @@ namespace MyHeroAdventure
         public int roomCleared = 10;
         public int artifactsCount = 3;        
         public Room[] dungeon = new Room[10];
+        Image image = new Image();
+        public string ImagePath
+        {
+            get { return @"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\shield.png"; }
+            set { }
+        }
         
         Random rnd = new Random(); 
         public List<int> artifactIndex = new List<int>();
 
+        #region Генератор имён боссов
         public string BossNameGenerator(int power)
         {
             string bossName = "Скелет";
             if ((power > 0) && (power <= 10))
             {
                 bossName = "Здоровенная Бешеная Цыпа";
-            } else if ((power > 10) && (power <= 20))
+            }
+            else if ((power > 10) && (power <= 20))
             {
                 bossName = "3872 орка";
-            } else if ((power > 20) && (power <= 30))
+            }
+            else if ((power > 20) && (power <= 30))
             {
                 bossName = "Блуждающий Нос";
-            } else if ((power > 30) && (power <= 40))
+            }
+            else if ((power > 30) && (power <= 40))
             {
                 bossName = "Страховой Агент";
-            } else if ((power > 40) && (power <= 50))
+            }
+            else if ((power > 40) && (power <= 50))
             {
                 bossName = "Пикачу с Топором";
-            } else if ((power > 50) && (power <= 60))
+            }
+            else if ((power > 50) && (power <= 60))
             {
                 bossName = "Милый Кролик";
-            } else if ((power > 60) && (power <= 70))
+            }
+            else if ((power > 60) && (power <= 70))
             {
                 bossName = "Шовинистский Боров";
-            } else if ((power > 70) && (power <= 80))
+            }
+            else if ((power > 70) && (power <= 80))
             {
                 bossName = "Лососилиск";
-            } else if ((power > 80) && (power <= 90))
+            }
+            else if ((power > 80) && (power <= 90))
             {
                 bossName = "Челведведосвин";
-            } else if ((power > 90) && (power <= 100))
+            }
+            else if ((power > 90) && (power <= 100))
             {
                 bossName = "Газебо";
-            }                
+            }
             return bossName;
         }
+        #endregion
+        #region Генератор названий артефактов
         public string ArtifactNameGenerator(int power)
         {
             string artifactName = "Скелет";
@@ -80,7 +100,8 @@ namespace MyHeroAdventure
             if ((power > 80) && (power <= 90)) artifactName = "Бензопила Кровавого Расчленения";
             if ((power > 90) && (power <= 100)) artifactName = "Б.Ф.Г.";
             return artifactName;
-        }
+        } 
+        #endregion
         public void DungeonGenerator()
         {
             heroPower = 25;
@@ -116,6 +137,7 @@ namespace MyHeroAdventure
                     
                 }
             }
+            ImagePath = "E:\\УЧЁБА\\Repos\\MyHeroAdventure\\MyHeroAdventure\\img\\victory.jpg";
 
             lbPower.Content = heroPower.ToString();
             lbIndicator.Content = "ВЫБЕРИ СВОЙ ПУТЬ!";
