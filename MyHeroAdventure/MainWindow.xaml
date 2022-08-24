@@ -29,7 +29,7 @@
         <Label x:Name="lbRoomClearCount" Content="0" HorizontalAlignment="Left" Margin="415,369,0,0" VerticalAlignment="Top" Width="54"/>
         <Label x:Name="lbPower" Content="25" HorizontalAlignment="Left" Margin="415,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.187,-0.076" Width="93"/>
         <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="122,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386" Height="109"/>
-        <Image x:Name="imResult" HorizontalAlignment="Left" Height="100" Margin="602,42,0,0" VerticalAlignment="Top" Width="100" Source="{Binding ImagePath}" Stretch="Fill"/>
+        <Image x:Name="imResult" HorizontalAlignment="Left" Height="100" Margin="602,42,0,0" VerticalAlignment="Top" Width="100" Source="{Binding Path=bitmap}" Stretch="Fill"/>
 
     </Grid>
 </Window>

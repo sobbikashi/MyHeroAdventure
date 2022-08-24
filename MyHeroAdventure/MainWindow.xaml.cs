@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Drawing;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Security.Policy;
 
 namespace MyHeroAdventure
 {
@@ -13,7 +15,9 @@ namespace MyHeroAdventure
     {
         public MainWindow()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            InitialiseImage();
+            
         }
         public class Room
         {            
@@ -28,15 +32,35 @@ namespace MyHeroAdventure
         public int roomCleared = 10;
         public int artifactsCount = 3;        
         public Room[] dungeon = new Room[10];
-        Image image = new Image();
-        public string ImagePath
-        {
-            get { return @"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\shield.png"; }
-            set { }
-        }
+        Uri win = new Uri(@"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\victory.jpg");
+        Uri lose = new Uri(@"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\defeat.png");
+        Uri art = new Uri(@"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\artifact.png");
+        Uri wait = new Uri(@"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\shield.png");
+
+
+        BitmapImage bitmap = new BitmapImage();
+        
+
         
         Random rnd = new Random(); 
         public List<int> artifactIndex = new List<int>();
+        public void InitialiseImage()
+        {
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(@"E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\shield.png");
+            bitmap.EndInit();
+            imResult.Source = bitmap;
+        }
+
+        public void ChangeImage(Uri uri)
+        {
+            
+            bitmap.UriSource = uri;
+            
+            imResult.Source = bitmap;
+        }
+      
+
 
         #region Генератор имён боссов
         public string BossNameGenerator(int power)
@@ -108,6 +132,7 @@ namespace MyHeroAdventure
             roomCleared = 10;
             //Генерируем количество артефактов
             int artifactsCount = rnd.Next(1, 5);
+            
             //Генерируем индексы артефактов в массиве дверей
             for (int i = 0; i < artifactsCount+1; i++)
             {
@@ -137,7 +162,8 @@ namespace MyHeroAdventure
                     
                 }
             }
-            ImagePath = "E:\\УЧЁБА\\Repos\\MyHeroAdventure\\MyHeroAdventure\\img\\victory.jpg";
+            
+           
 
             lbPower.Content = heroPower.ToString();
             lbIndicator.Content = "ВЫБЕРИ СВОЙ ПУТЬ!";
@@ -156,10 +182,11 @@ namespace MyHeroAdventure
                         heroPower = heroPower + 5;
                         lbPower.Content = heroPower.ToString();
                         tbStatus.Text = "На Вас напал монстр " + dungeon[roomNumber - 1].Name + " силой " + dungeon[roomNumber-1].BossPower + "\n" + "За победу Вы получаете 5 силы";
-                       
+                        ChangeImage(win);
                     }
                     else
                     {
+                        ChangeImage(lose);
                         lbIndicator.Content = "ПОРАЖЕНИЕ!";
                         MessageBox.Show("Поражение");
                         DungeonGenerator();                        
@@ -170,7 +197,8 @@ namespace MyHeroAdventure
                    tbStatus.Text = "Вы нашли артефакт " + dungeon[roomNumber-1].Name.ToString() + " силой " + dungeon[roomNumber - 1].BossPower.ToString();
                    heroPower = heroPower + dungeon[roomNumber - 1].BossPower;
                    lbPower.Content = heroPower.ToString(); 
-                   roomCleared = --roomCleared;                   
+                   roomCleared = --roomCleared;    
+                   ChangeImage(art);
                 }
 
                 dungeon[roomNumber - 1].IsChecked = true;
