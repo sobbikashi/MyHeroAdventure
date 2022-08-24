@@ -123,17 +123,16 @@ namespace MyHeroAdventure
         #region Генератор названий артефактов
         public string ArtifactNameGenerator(int power)
         {
-            string artifactName = "Скелет";
-            if ((power > 0) && (power <= 10)) artifactName = "Банка Яги";
-            if ((power > 10) && (power <= 20)) artifactName = "Трусы с начёсом";
-            if ((power > 20) && (power <= 30)) artifactName = "Кольцо ВсеЗдрасти";
-            if ((power > 30) && (power <= 40)) artifactName = "Vrblther's Vibroblade";
-            if ((power > 40) && (power <= 50)) artifactName = "Демократизатор";
-            if ((power > 50) && (power <= 60)) artifactName = "Розовые Очки";
-            if ((power > 60) && (power <= 70)) artifactName = "Шашка Чапаева";
-            if ((power > 70) && (power <= 80)) artifactName = "Синяя Изолента";
-            if ((power > 80) && (power <= 90)) artifactName = "Бензопила Кровавого Расчленения";
-            if ((power > 90) && (power <= 100)) artifactName = "Б.Ф.Г.";
+            string artifactName = "Скелет";            
+            
+            if ((power >= 10) && (power <= 15)) artifactName = "Кольцо ВсеЗдрасти";
+            if ((power > 15) && (power <= 20)) artifactName = "Vrblther's Vibroblade";
+            if ((power > 20) && (power <= 25)) artifactName = "Демократизатор";
+            if ((power > 25) && (power <= 30)) artifactName = "Розовые Очки";
+            if ((power > 30) && (power <= 35)) artifactName = "Шашка Чапаева";
+            if ((power > 35) && (power <= 40)) artifactName = "Синяя Изолента";
+            if ((power > 40) && (power <= 45)) artifactName = "Бензопила Кровавого Расчленения";
+            if ((power > 45) && (power <= 50)) artifactName = "Б.Ф.Г.";
             return artifactName;
         } 
         #endregion
@@ -142,15 +141,8 @@ namespace MyHeroAdventure
             heroPower = 25;
             roomCleared = 10;
             //Генерируем адрес артефакта
-            int artifactIndex = rnd.Next(0, 11);
+            int artifactIndex = rnd.Next(0, 11);          
             
-            ////Генерируем индексы артефактов в массиве дверей
-            //for (int i = 0; i < artifactsCount+1; i++)
-            //{
-            //    artifactIndex.Add(rnd.Next(1, 10));
-            //}         
-
-
             //Генерируем подземелье из боссов и артефактов
             for (int i = 0; i < 10; i++)
             {
@@ -169,8 +161,7 @@ namespace MyHeroAdventure
                     }                   
                     dungeon[i].IsChecked = false;                   
                     
-            }
-            
+            }          
             
            
 
@@ -204,6 +195,10 @@ namespace MyHeroAdventure
                 }
                 else
                 {
+                    if ((dungeon[roomNumber-1].BossPower >= 50) | (dungeon[roomNumber - 1].BossPower < 10))
+                    {
+                        dungeon[roomNumber - 1].BossPower = rnd.Next(10, 51);
+                    }
                    tbStatus.Text = "Вы нашли артефакт " + dungeon[roomNumber-1].Name.ToString() + " силой " + dungeon[roomNumber - 1].BossPower.ToString();
                    heroPower = heroPower + dungeon[roomNumber - 1].BossPower;
                    lbPower.Content = heroPower.ToString(); 
