@@ -7,19 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn1" HorizontalAlignment="Left" Margin="122,54,0,0" VerticalAlignment="Top" Width="45" Height="60
-                " Content="1" Click="btn1_Click" 
-               />
+        <Button x:Name="btn1" HorizontalAlignment="Left" Margin="122,54,0,0" VerticalAlignment="Top" Width="45" Height="60" Content="1" Click="btn1_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
 
-        <Button x:Name="btn2" Content="2" HorizontalAlignment="Left" Margin="206,54,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Click="btn2_Click"/>
-        <Button x:Name="btn3" Content="3" HorizontalAlignment="Left" Margin="292,54,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Click="btn3_Click"/>
-        <Button x:Name="btn4" Content="4" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" Width="44" Height="60                 " Click="btn4_Click"/>
-        <Button x:Name="btn5" HorizontalAlignment="Left" Margin="463,54,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Content="5" Click="btn5_Click"/>
-        <Button x:Name="btn6" HorizontalAlignment="Left" Margin="122,157,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Content="6" Click="btn6_Click"/>
-        <Button x:Name="btn7" Content="7" HorizontalAlignment="Left" Margin="206,157,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Click="btn7_Click"/>
-        <Button x:Name="btn8" Content="8" HorizontalAlignment="Left" Margin="292,157,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Click="btn8_Click"/>
-        <Button x:Name="btn9" Content="9" HorizontalAlignment="Center" Margin="0,157,0,0" VerticalAlignment="Top" Width="44" Height="60                 " Click="btn9_Click"/>
-        <Button x:Name="btn10" HorizontalAlignment="Left" Margin="463,157,0,0" VerticalAlignment="Top" Width="45" Height="60                 " Content="10" Click="btn10_Click"/>
+        <Button x:Name="btn2" Content="2" HorizontalAlignment="Left" Margin="206,54,0,0" VerticalAlignment="Top" Width="45" Height="60" Click="btn2_Click"> 
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush> 
+            </Button.Background> 
+        </Button>
+        <Button x:Name="btn3" Content="3" HorizontalAlignment="Left" Margin="292,54,0,0" VerticalAlignment="Top" Width="45" Height="60" Click="btn3_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn4" Content="4" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" Width="44" Height="60" Click="btn4_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn5" HorizontalAlignment="Left" Margin="463,54,0,0" VerticalAlignment="Top" Width="45" Height="60" Content="5" Click="btn5_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn6" HorizontalAlignment="Left" Margin="122,157,0,0" VerticalAlignment="Top" Width="45" Height="60" Content="6" Click="btn6_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn7" Content="7" HorizontalAlignment="Left" Margin="206,157,0,0" VerticalAlignment="Top" Width="45" Height="60" Click="btn7_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn8" Content="8" HorizontalAlignment="Left" Margin="292,157,0,0" VerticalAlignment="Top" Width="45" Height="60" Click="btn8_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn9" Content="9" HorizontalAlignment="Center" Margin="0,157,0,0" VerticalAlignment="Top" Width="44" Height="60" Click="btn9_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn10" HorizontalAlignment="Left" Margin="463,157,0,0" VerticalAlignment="Top" Width="45" Height="60" Content="10" Click="btn10_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="E:\УЧЁБА\Repos\MyHeroAdventure\MyHeroAdventure\img\door.jpg"></ImageBrush>
+            </Button.Background>
+        </Button>
         <Label x:Name="lbYourPowerLabel" Content="Ваша Сила" HorizontalAlignment="Left" Margin="122,348,0,0" VerticalAlignment="Top" Width="129"/>
         <Button x:Name="btnTest" Content="Тест" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top" Click="btnTest_Click"/>
         <Button x:Name="btnGenerate" Content="Создать" HorizontalAlignment="Left" Margin="22,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.093,0.365" Click="btnGenerate_Click"/>
