@@ -68,6 +68,7 @@
         <Label x:Name="lbPower" Content="25" HorizontalAlignment="Left" Margin="415,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.187,-0.076" Width="93"/>
         <TextBlock x:Name="tbStatus" HorizontalAlignment="Left" Margin="122,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386" Height="109"/>
         <Image x:Name="imResult" HorizontalAlignment="Left" Height="100" Margin="602,42,0,0" VerticalAlignment="Top" Width="100" Source="{Binding Path=bitmap}" Stretch="Fill"/>
+        <TextBox x:Name="tbCommand" HorizontalAlignment="Left" Margin="586,157,0,0" TextWrapping="Wrap" Text="Введите команду" VerticalAlignment="Top" Width="120" TextChanged="tbCommand_TextChanged"/>
 
     </Grid>
 </Window>

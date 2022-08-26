@@ -47,7 +47,7 @@ namespace MyHeroAdventure
 
 
         Random rnd = new Random(); 
-        public List<int> artifactIndex = new List<int>();
+        public List<int> artifactIndex = new List<int>();        
         public void InitialiseImage()
         {
             bitmapArt.BeginInit();
@@ -136,6 +136,10 @@ namespace MyHeroAdventure
             return artifactName;
         } 
         #endregion
+        public void RoomSalvation()
+        {
+
+        }
         public void DungeonGenerator()
         {
             heroPower = 25;
@@ -288,6 +292,14 @@ namespace MyHeroAdventure
         private void btn10_Click(object sender, RoutedEventArgs e)
         {
             RoomCheck(10);
+        }
+
+        private void tbCommand_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbCommand.Text == "Пройти")
+            {
+                MessageBox.Show("Хорошо");
+            }
         }
     }
     
